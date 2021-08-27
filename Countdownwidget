@@ -1,1 +1,134 @@
-<div class="powr-countdown-timer" id="e4c1fc65_1630046158"></div><script src="https://www.powr.io/powr.js?platform=html"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Cabin+Sketch:900">
+    <title>Document</title>
+    <style>
+
+body{
+    background-color: blue;
+}
+  
+#timer {
+  color: #ddebf1;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Open+Sans', sans-serif;
+  font-size: .7em;
+  letter-spacing: 5px;
+}
+
+.days, .hours, .minutes, .seconds {
+  display: inline-block;
+  padding: 20px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.days {
+  background: #93B5C6;
+}
+
+.hours {
+  background: #ddebf1;
+  color:  #045479;
+}
+
+.minutes {
+  background: #E4D8DC;
+}
+
+.seconds {
+  background: #FFE3E3;
+}
+
+.numbers {
+  font-family: 'Cabin+Sketch', sans-serif;
+  color:  #4F0E0E;
+  font-size: 4em;
+  text-align: center;
+}
+
+.blue {
+  position: absolute;
+  background:  #ddebf1;
+  height: 85px;
+  width: 75px;
+  left: 30%;
+  top: 2%;
+}
+
+.grey {
+  position: absolute;
+  background:  #93B5C6;
+  left: 18%;
+  top: 9%;
+  height: 65px;
+  width: 70px;
+ 
+}
+
+.pink {
+  position: absolute;
+  background:  #E4D8DC;
+  height: 80px;
+  width: 80px;
+  left: 60%;
+  top: 5%;
+
+
+}
+
+
+    </style>
+</head>
+<body>
+    
+<div id="timer">
+
+    <div class="days"> 
+        <div id="days" class="numbers "> </div>days</div> 
+      <div class="hours"> 
+        <div  id="hours" class="numbers"> </div>hours</div> 
+      <div class="minutes"> 
+        <div  id="minutes" class="numbers"> </div>minutes</div> 
+      <div   class="seconds"> 
+        <div id="seconds" class="numbers"> </div>seconds</div> 
+      </div>
+
+</div>
+
+</body>
+<script>
+    const year = new Date().getFullYear();
+const myDate = new Date('Sep 08, 2021 00:00:00');
+console.log(myDate);
+
+// countdown
+let timer = setInterval(function() {
+
+  // get today's date
+  const today = new Date().getTime();
+
+  // get the difference
+  const diff = myDate - today;
+
+  // math
+  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  // display
+  document.getElementById("days").innerHTML=days
+  document.getElementById("hours").innerHTML=hours
+  document.getElementById("minutes").innerHTML=minutes
+  document.getElementById("seconds").innerHTML=seconds
+
+
+
+}, 1);
+</script>
+</html>
